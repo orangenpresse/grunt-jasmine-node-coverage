@@ -10,24 +10,25 @@ Then add this line to your project's `grunt.js` grunt file:
 ```javascript
 grunt.initConfig({
   jasmine_node: {
-    coverage: {
-
-    },
     options: {
-      forceExit: true,
+      specFolders: ['spec/']
+      forceExit: false,
       match: '.',
       matchall: false,
       extensions: 'js',
       specNameMatcher: 'spec',
       captureExceptions: true,
       junitreport: {
-        report: false,
-        savePath : "./build/reports/jasmine/",
+        report: true,
+        savePath : "./reports/jasmine/",
         useDotNotation: true,
         consolidate: true
+      },
+      coverage: {
+        enable: false,
+        savePath : "./reports/coverage/"
       }
-    }
-  }
+    },
 });
 
 grunt.loadNpmTasks('grunt-jasmine-node-coverage');
